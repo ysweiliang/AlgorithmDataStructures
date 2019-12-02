@@ -2,6 +2,12 @@ package com.yuans.datastructures.linkedlist;
 
 import java.util.Stack;
 
+/**
+ * 单链表增删改
+ *
+ * @author yuans
+ * @create 2019-09-27-22:00
+ */
 public class SingleLinkedListDemo {
 
     public static void main(String[] args) {
@@ -13,7 +19,6 @@ public class SingleLinkedListDemo {
 
         //创建要给链表
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-
 
         //加入
         singleLinkedList.add(hero1);
