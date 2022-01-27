@@ -1,5 +1,7 @@
 package com.yuans.algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * 冒泡排序
  *
@@ -9,7 +11,7 @@ package com.yuans.algorithm.sort;
 public class BubbleSort {
 
     // 冒泡排序，a表示数组，n表示数组大小
-    public void bubbleSort(int[] a, int n) {
+    public static void bubbleSort(int[] a, int n) {
         if (n <= 1) return;
         for (int i = 0; i < n; ++i) {
             // 提前退出冒泡循环的标志位
@@ -26,12 +28,25 @@ public class BubbleSort {
         }
     }
 
-    public static void main(String[] args) {
-        BubbleSort bs = new BubbleSort();
-        int[] a = new int[]{1, 3, 2, 6, 5, 9, 7};
-        bs.bubbleSort(a, a.length);
-        for (int x : a) {
-            System.out.print(x);
+    public static void bubbleSort(int[] a) {
+        if (a == null || a.length < 2) {
+            return;
         }
+        for (int end = a.length - 1; end > 0; end--) {
+            for (int i = 0; i < end; i++) {
+                if (a[i] > a[i + 1]) {
+                    int tmp = a[i];
+                    a[i] = a[i + 1];
+                    a[i + 1] = tmp;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] a = new int[]{1, 3, 2, 6, 5, 9, 7};
+//        BubbleSort.bubbleSort(a, a.length);
+        BubbleSort.bubbleSort(a);
+        System.out.print(Arrays.toString(a));
     }
 }

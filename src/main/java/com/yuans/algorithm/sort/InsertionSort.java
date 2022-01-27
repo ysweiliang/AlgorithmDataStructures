@@ -1,5 +1,7 @@
 package com.yuans.algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * 插入排序
  *
@@ -9,7 +11,7 @@ package com.yuans.algorithm.sort;
 public class InsertionSort {
 
     // 插入排序，a表示数组，n表示数组大小
-    public void insertionSort(int[] a, int n) {
+    public static void insertionSort(int[] a, int n) {
         if (n <= 1) return;
         for (int i = 1; i < n; ++i) {
             int value = a[i];
@@ -26,12 +28,24 @@ public class InsertionSort {
         }
     }
 
-    public static void main(String[] args) {
-        InsertionSort is = new InsertionSort();
-        int[] a = new int[]{1, 3, 2, 6, 5, 9, 7};
-        is.insertionSort(a, a.length);
-        for (int x : a) {
-            System.out.print(x);
+    public static void insertionSort(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
         }
+        for (int i = 1; i < arr.length; i++) { // 0 ~ i 做到有序
+            //将最小值放到最前面
+            for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
+                int tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] a = new int[]{1, 3, 2, 6, 5, 9, 7};
+//        InsertionSort.insertionSort(a, a.length);
+        InsertionSort.insertionSort(a);
+        System.out.print(Arrays.toString(a));
     }
 }
