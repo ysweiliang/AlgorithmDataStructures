@@ -34,6 +34,8 @@ public class InsertionSort {
         }
         for (int i = 1; i < arr.length; i++) { // 0 ~ i 做到有序
             //将最小值放到最前面
+            //j = i - 1 : 当前值前一位，如果j>0同时前面的值大于当前值，则进行数值调换，
+            //直到将当前值放到第一位或者当前值大于前一位停止（已排序好的数组有序）
             for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
                 int tmp = arr[j];
                 arr[j] = arr[j + 1];
